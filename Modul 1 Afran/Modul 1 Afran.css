@@ -1,0 +1,71 @@
+*{
+    box-sizing: border-box;
+}
+    
+    
+    section {
+        padding-top: 5%;
+        padding-bottom: 3%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .navbar-nav a:hover{
+        color: red;
+    }
+    .col{
+        text-align: justify;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 6%;
+    }
+
+    .row{
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+    h2{
+        text-align: center;
+    }
+    .rev{
+        text-align: center;
+    }
+
+    h5{
+        text-align: center;
+    }
+
+    .iframe{
+        text-align: center;
+    }
+
+    .spesifikasi{
+        text-align: center;
+    }
+
+
+    .mb4{
+        margin-left: 40%;
+        padding-left: 50%;
+    }
+    .card-footer{
+        text-align: center;
+        background-color: rgba(226, 194, 194, 0.233);
+    }
+
+    form{
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+
+    .footer{
+        text-align: center;
+        background-color:aliceblue;
+    }
+
+    .modal-body{
+        text-align: left;
+    }
+    .card-body{
+        text-align: center;
+    }
