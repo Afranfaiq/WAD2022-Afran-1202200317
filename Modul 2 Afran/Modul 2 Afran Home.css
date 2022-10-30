@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+
+.heading{
+    text-align: center;
+}
+.card-group{
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+}
+ul{
+    text-align: center;
+}
+.card-footer{
+    text-align: center;
+}
+section {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.footer{
+    text-align: center;
+    background-color:aliceblue;
+}
