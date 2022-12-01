@@ -22,7 +22,7 @@
             Login
         </h2>
         <br>
-        <form action="../config/login.php" method="POST" enctype="multipart/form-data">
+        <form action="../config/login.php" method="GET" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="Email" name="Email">

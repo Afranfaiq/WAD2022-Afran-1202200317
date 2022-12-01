@@ -1,8 +1,8 @@
 <?php
     require './connector2.php';
 
-    $Email = $_POST['Email'];
-    $Password = $_POST['Password'];
+    $Email = $_GET['Email'];
+    $Password = $_GET['Password'];
     
     $query=mysqli_query($conn2, "SELECT * FROM users_afran WHERE Email = '$Email' && Password = '$Password'");
     $rows=mysqli_num_rows($query);

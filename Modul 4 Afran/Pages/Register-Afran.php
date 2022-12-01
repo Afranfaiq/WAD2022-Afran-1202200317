@@ -22,7 +22,7 @@
             Register
         </h2>
         <br>
-        <form action="../config/register.php" method="POST" enctype="multipart/form-data">
+        <form action="config/register.php" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="Email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="Email" name="Email">
