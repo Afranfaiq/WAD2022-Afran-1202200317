@@ -1,15 +1,27 @@
 <?php
 
-
-    include 'connector.php';
-    $car_name = $_POST['car_name'];
-    $name = $_POST['name'];
-    $merk = $_POST['merk'];
+    require './connector.php';
+    $id_mobil = $_GET["ID_Mobil"]
+    $Nama_Mobil = $_POST['Nama_Mobil'];
+    $nama_pemilik = $_POST['nama_pemilik'];
+    $merek = $_POST['merek'];
     $beli = $_POST['beli'];
     $deskripsi = $_POST['deskripsi'];
-    $stausPembayran = $_POST['bayar'];
+    $foto_mobil = $_FILES['foto_mobil']['name'];
+    $statusPembayaran = $_POST['bayar'];
+    $file = "../Asset/image/";
+
+    if (move_uploaded_file($_FILES['foto_mobil']['tmp_name'], $file . $foto_mobil)){
+        $db =  "UPDATE showroom_afran_table SET Nama_Mobil = '$Nama_Mobil', Nama_Pemilik = '$nama_pemilik', Merk_Mobil = '$merek',
+        Tanggal_Beli = '$beli', Deskripsi = '$deskripsi', Foto = '$foto_mobil', Status_Pembayaran = '$statusPembayaran' 
+        WHERE ID_Mobil = '$id_mobil'";
+        if (mysqli_query($conn, $db)) {
+            header("location: ../Pages/ListCar-Afran.php");
+            } else {
+                header("location: ../Pages/ListCar-Afran.php");
+            }
+        } else {
+            echo "Gagal";
+        }
     
-    mysqli_query($conn, "update showroom_afran_table set car_name='$car_name', name='$name', merk='$merk', beli='$beli', deskripsi='$deskripsi', bayar='$statusPembayaran' where id_mobil='$id'");
-    
-    header("location:../Home-Afran.php");
-    ?> 
+?>

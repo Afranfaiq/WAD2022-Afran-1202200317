@@ -23,7 +23,7 @@
                 </li>
                 <div class="col">
                     <div class="dropdown">
-                      <button type="button" class="btn btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                      <button type="button" class="btn btn btn-light dropdown-toggle" db-bs-toggle="dropdown">
                         Afran
                       </button>
                       <ul class="dropdown-menu">
@@ -36,5 +36,77 @@
         </div>
     </header>
 
+    <?php
+        include '../config/connector.php';
+    
+        $id_mobil = $_GET['ID_Mobil'];
+        $carList = mysqli_query($conn, "SELECT * FROM showroom_afran_table WHERE ID_Mobil = '$id_mobil'");
+        while($db = mysqli_fetch_array($carList)){
+    ?>
+       <section id="add">
+        <div class="additem">
+            <div class="judul">
+                <h1><?php echo $db['Nama_Mobil']?></h1>
+                <h6 style="color: grey;">Detail Mobil</h6>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img class="img-fluid" src="../Asset/image/<?php echo $db['Foto']?>"
+                        alt="<?php echo $db['Nama_Mobil']?>" style="width: 600px;" />
+                </div>
+                <form action="../config/edit.php?id_mobil=<?php echo $data['ID_Mobil']?>" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for=" " class="form-label">Nama Mobil</label>
+              <input  name = "Nama_Mobil" class="form-control" type="text" value="" id="Nama_Mobil"
+                value="<?php echo $db['Nama_Mobil'];?>">
+            </div>
+            <div class="mb-3">
+              <label for="nama_pemilik" class="form-label">Nama Pemilik</label>
+              <input  name = "Nama_Pemilik" class="form-control" type="text" value="" id="Nama_Pemilik"
+                value="<?php echo $db['nama_pemilik'];?>">
+            </div>
+            <div class="mb-3">
+              <label for=" merek" class="form-label">Merk</label>
+              <input  name = "merek" class="form-control" type="text" value="" id="merek"
+                value="<?php echo $db['merek'];?>">
+            </div>
+            <div class="mb-3">
+              <label for="date" class="form-label">Tanggal Beli</label>
+              <input type="date" class="form-control" name = "beli" value ="dd/mm/yyyy" id="beli"
+                value="<?php echo $db['Tanggal_Beli'];?>">
+            </div>
+            <div class="mb-3">
+              <label for="Deskripsi" class="form-label">Deskripsi</label>
+              <input type ="text" class="form-control" id="Deskripsi" name="Deskripsi" rows="5"
+                value="<?php echo $db['Deskripsi'];?>">
+            </div>
+            <div class="mb-3">
+                <label for="Foto" class="form-label">Foto</label>
+                <input class="form-control" type="file" id="Foto" name="Foto"
+                value="<?php echo $db['Foto'];?>">
+              </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="bayar" id="lunas" value="lunas"
+                 <?php if($db['bayar']=='lunas') echo 'checked'?>>
+              <label class="form-check-label" for="lunas">Lunas</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="bayar" id="belumLunas" value="belumLunas"
+              <?php if($db['bayar']=='belumLunas') echo 'checked'?>>
+              <label class="form-check-label" for="belumLunas">Belum Lunas</label>
+            </div>
+            <br><br>
+            <div class="col-12">
+                <a href="Edit-Afran.php?id_mobil=<?php echo $db['ID_Mobil']?>"
+                class="btn btn-primary btn-edit me-4" style="width:100px;height:40px;">Edit</a>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <?php
+        }
+    ?>
+</body>
     
 </body>
